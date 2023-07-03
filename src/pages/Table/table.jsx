@@ -8,6 +8,7 @@ import { AuthContext } from '../../auth/AuthContext';
 import { useParams } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import Ficha from "../../assets/Images/ficha_casino.png";
+import API_URL from "../../config";
 
 const BlackjackTable = () => {
   // Aquí puedes definir el estado del juego y otras variables necesarias
@@ -18,7 +19,7 @@ const BlackjackTable = () => {
   const [userid, setUserid] = useState(0);
   const [gameState, setGameState] = useState([]);
   const [turno, setTurno] = useState(1);
-  const [contador , setContador] = useState(0);
+  const [contador, setContador] = useState(0);
   const [betsOpen, setBetsOpen] = useState(true);
   const [isHost, setIsHost] = useState(false);
   const [bet, setBet] = useState(0);
@@ -35,7 +36,7 @@ const BlackjackTable = () => {
       const decodedToken = jwtDecode(token);
       const newUserId = parseInt(decodedToken.sub);
       setUserid(newUserId);
-      axiosInstance.get(`${import.meta.env.VITE_BACKEND_URL}/table/isHost/${gameid}`)
+      axiosInstance.get(`${API_URL}/table/isHost/${gameid}`)
         .then((response) => {
           setIsHost(response.data.host);
           setBalance(response.data.balance);
@@ -47,7 +48,7 @@ const BlackjackTable = () => {
       console.log('Error al decodificar el token:', error.message);
     }
 
-    
+
 
     const handlePageUnload = () => {
       eliminarRecurso();
@@ -75,7 +76,7 @@ const BlackjackTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       console.log(gameid);
-      axiosInstance.get(`${import.meta.env.VITE_BACKEND_URL}/game/state/${gameid}`)
+      axiosInstance.get(`${API_URL}/game/state/${gameid}`)
         .then((response) => {
           console.log(response.data);
           setGameState(response.data.state);
@@ -91,7 +92,7 @@ const BlackjackTable = () => {
         .then((response) => {
           checkBlackjack();
         })
-        .then( (response) => {
+        .then((response) => {
           if (turno == seat && blackjack == true) {
             plantarse();
           }
@@ -133,43 +134,43 @@ const BlackjackTable = () => {
   }, [turno]);
 
   const pedirCartas = () => {
-    axiosInstance.post(`${import.meta.env.VITE_BACKEND_URL}/game/execute`, {
+    axiosInstance.post(`${API_URL}/game/execute`, {
       gameid: gameid,
       action: 'hit',
     })
-    // .then ((response) => {
-    //   if (response.data.turno == 0) {
-    //     setBetsOpen(true);
-    //     check_win();
+      // .then ((response) => {
+      //   if (response.data.turno == 0) {
+      //     setBetsOpen(true);
+      //     check_win();
 
-    //   }
-    // })
+      //   }
+      // })
       .catch((error) => {
         console.log(error);
       });
   }
 
   const plantarse = () => {
-    axiosInstance.post(`${import.meta.env.VITE_BACKEND_URL}/game/execute`, {
+    axiosInstance.post(`${API_URL}/game/execute`, {
       gameid: gameid,
       userid: userid,
       action: 'stand',
     })
-    // .then ((response) => {
-    //   if (response.data.turno == 0) {
-    //     console.log('entre al if, voy a checkear el win');
-    //     check_win();
+      // .then ((response) => {
+      //   if (response.data.turno == 0) {
+      //     console.log('entre al if, voy a checkear el win');
+      //     check_win();
 
-    //   }
-    // })
-    .catch((error) => {
-      console.log(error);
-    });
+      //   }
+      // })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   const check_win = () => {
     console.log('entre al check win');
-    axiosInstance.put(`${import.meta.env.VITE_BACKEND_URL}/game/check_win/${gameid}`)
+    axiosInstance.put(`${API_URL}/game/check_win/${gameid}`)
       .then((response) => {
         console.log(response.data);
         const { win, tie } = response.data;
@@ -182,7 +183,7 @@ const BlackjackTable = () => {
   }
 
   const apostar = () => {
-    axiosInstance.put(`${import.meta.env.VITE_BACKEND_URL}/table/raisebet/${gameid}/50`)
+    axiosInstance.put(`${API_URL}/table/raisebet/${gameid}/50`)
       .then((response) => {
         console.log(response.data);
         setBalance(response.data.balance);
@@ -194,7 +195,7 @@ const BlackjackTable = () => {
   }
 
   const bajarApuesta = () => {
-    axiosInstance.put(`${import.meta.env.VITE_BACKEND_URL}/table/raisebet/${gameid}/${-50}`)
+    axiosInstance.put(`${API_URL}/table/raisebet/${gameid}/${-50}`)
       .then((response) => {
         setBalance(response.data.balance);
         setBet(response.data.bet);
@@ -205,7 +206,7 @@ const BlackjackTable = () => {
   }
 
   const checkBlackjack = () => {
-    axiosInstance.put(`${import.meta.env.VITE_BACKEND_URL}/game/check_blackjack/${gameid}`)
+    axiosInstance.put(`${API_URL}/game/check_blackjack/${gameid}`)
       .then((response) => {
         console.log(response.data);
         const { blackjack } = response.data;
@@ -221,7 +222,7 @@ const BlackjackTable = () => {
 
 
   const iniciarJuego = () => {
-    axiosInstance.get(`${import.meta.env.VITE_BACKEND_URL}/game/start/${gameid}`)
+    axiosInstance.get(`${API_URL}/game/start/${gameid}`)
       .then((response) => {
         console.log(response.data);
         setTurno(response.data.turno);
@@ -236,7 +237,7 @@ const BlackjackTable = () => {
   }
 
   const eliminarRecurso = () => {
-    axiosInstance.delete(`${import.meta.env.VITE_BACKEND_URL}/table/${gameid}`)
+    axiosInstance.delete(`${API_URL}/table/${gameid}`)
       .then(() => {
         console.log('Recurso eliminado exitosamente');
       })
@@ -246,7 +247,7 @@ const BlackjackTable = () => {
   }
 
   const limpiarMesa = () => {
-    axiosInstance.delete(`${import.meta.env.VITE_BACKEND_URL}/table/clear/${gameid}`)
+    axiosInstance.delete(`${API_URL}/table/clear/${gameid}`)
       .then(() => {
         console.log('Mesa limpiada exitosamente');
         setContador(0);
