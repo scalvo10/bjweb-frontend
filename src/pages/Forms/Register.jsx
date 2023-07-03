@@ -29,11 +29,8 @@ function RegisterForm() {
       password: password
     }).then((response) => {
       console.log('Registro exitoso! Ahora puedes volver y loguearte');
-      setError(false);
-      setMsg('Registro exitoso! Ahora puedes volver y loguearte');
     }).catch((error) => {
       console.error('Ocurrió un error:', error);
-      setError(true); // aquí puede haber más lógica para tratar los errores
     });
   }
 
