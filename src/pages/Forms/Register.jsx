@@ -4,7 +4,7 @@ import API_URL from '../../config';
 import axios from 'axios';
 
 function RegisterForm() {
-  const [name, setName] = useState('');
+  const [username, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -42,8 +42,8 @@ function RegisterForm() {
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <label>
-            Name:
-            <input className='input' type="text" value={name} onChange={handleNameChange} />
+            Username:
+            <input className='input' type="text" value={username} onChange={handleNameChange} />
           </label>
           <label>
             Email:
