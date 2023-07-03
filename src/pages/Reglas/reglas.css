@@ -1,0 +1,95 @@
+.homepage-title {
+    font-size: 2.5rem;
+    position: relative;
+    left: 0;
+  
+  }
+  
+  main{
+      min-height: 87.5vh;
+      height: auto;
+      padding-bottom: 60px;
+  }
+  
+  .blackjack-button {
+    background-color: #000000; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: #0a4600; /* Borde del botón */
+    padding: 12px 24px; /* Espacio de relleno del botón */
+    text-align: center; /* Alineación del texto dentro del botón */
+    text-decoration: none; /* Decoración del texto dentro del botón */
+    display: inline-block; /* Muestra el botón como un bloque en línea */
+    font-size: 16px; /* Tamaño de fuente del texto dentro del botón */
+    margin: 4px 2px; /* Margen alrededor del botón */
+    cursor: pointer; /* Cambia el cursor cuando se pasa sobre el botón */
+    border-radius: 8px; /* Radio de los bordes del botón */
+    box-shadow: 0 4px #3e8e41; /* Sombra del botón */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos del botón cuando se pasa el cursor */
+  .blackjack-button:hover {
+    background-color: #3e8e41; /* Color de fondo del botón */
+    box-shadow: 0 4px #2f6833; /* Sombra del botón */
+  }
+  
+  /* Estilos del botón cuando se presiona */
+  .blackjack-button:active {
+    background-color: #2f6833; /* Color de fondo del botón */
+    box-shadow: 0 2px #2f6833; /* Sombra del botón */
+    transform: translateY(2px); /* Efecto de presionar el botón */
+  }
+
+  .titulo {
+    font-family: "Helvetica", sans-serif;
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .subtitulo {
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 24px;
+    color: #b2a9a9;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  th,td {
+    padding: 10px;
+    text-align: center;
+    font-family: "Helvetica", sans-serif;
+    font-size: 14px;
+    color: #bfbfbf;
+    border: 1px solid #00000000;
+  }
+  
+  th {
+    background-color: #969696;
+    color: #00000075;
+    text-transform: uppercase;
+  }
+  
+  td {
+    background-color: #37363686;
+  }
+  
+  
+
+  
+  

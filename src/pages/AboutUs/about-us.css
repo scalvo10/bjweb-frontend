@@ -1,0 +1,59 @@
+.main-au {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 140px; 
+    padding-top: 40px;
+    height: auto;
+    justify-content: space-around;
+}
+.content {  
+    max-width: 800px;
+    margin-bottom: 30px;
+    font-size: 1vw;
+    text-align: justify;
+    gap: 30px;
+    background-color: rgba(0, 0, 0, 0.371);
+    border-radius: 20px;
+    padding: 30px;
+    margin-left: 5px;
+
+}
+
+.content:first-child {
+    background-color: rgba(0, 0, 0, 0);
+    max-width: 400px;
+}
+
+.team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    align-items: stretch
+}
+
+.team-member{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 2vh;
+    width: 300px;
+    height: auto;
+    background-color: #888888;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.perfil {
+    width: 160px;
+    height: 200px;
+    border-radius: 50%;
+}
