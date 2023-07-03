@@ -5,7 +5,7 @@ function Card({ number, suit }) {
   const [imagePath, setImagePath] = useState(null);
 
   useEffect(() => {
-    import(`../../../Images/cartas/${number}_of_${suit}.svg`)
+    import(`../../assets/Images/cartas/${number}_of_${suit}.svg`)
       .then((image) => {
         setImagePath(image.default);
       })

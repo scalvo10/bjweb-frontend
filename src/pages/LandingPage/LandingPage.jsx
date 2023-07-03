@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './landing.css'
-import Logo from '../../../Images/blackjack.png';
+import Logo from '../../assets/Images/blackjack.png';
 
 function LandingPage() {
   return (

@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import Tablero from '../../../Images/table.png';
+import Tablero from '../../assets/Images/table.png';
 import './table.css';
 import Card from "../../components/Card/Card";
 import createAxiosInstance from '../../axiosinstance';
 import { AuthContext } from '../../auth/AuthContext';
 import { useParams } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import Ficha from "../../../Images/ficha_casino.png";
+import Ficha from "../../assets/Images/ficha_casino.png";
 
 const BlackjackTable = () => {
   // Aquí puedes definir el estado del juego y otras variables necesarias
