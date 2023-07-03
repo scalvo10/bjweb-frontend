@@ -1,6 +1,5 @@
 import React from "react";
 import './about-us.css';
-import Toño from '../../../Images/fototonopaginaweb.jpg';
 import Calvo from '../../../Images/Calvo.jpg';
 
 function AboutUs() {
@@ -25,7 +24,7 @@ function AboutUs() {
             <p>ndncw wovnwb viowvonw oiwdnvbwqvb  cdiuwbnvwiv  wbnciwvnwib cwiucbiwb cbwbcnb chuebch c deiobcd  cjibwnv wcbcibvwcw</p>
           </div>
           <div className="team-member">
-            <img className="perfil" src={Toño} alt="Antonio Doberti" />
+            <img className="perfil" src={Calvo} alt="Antonio Doberti" />
             <h3>Antonio Doberti</h3>
             <p>kjwvn  winnbyd cubeo  ciundebiwn dhcn cjujuebibw iondnvw dbdjn wiudbw bwcibbc ydbiwbjn iwbciobwk icbwhvw iwbchh wicjd iswhjw</p>
           </div>
