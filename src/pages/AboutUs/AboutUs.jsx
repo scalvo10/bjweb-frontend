@@ -1,7 +1,7 @@
 import React from "react";
 import './about-us.css';
-import Toño from '../../../public/Images/fototoñopaginaweb.jpg';
-import Calvo from '../../../public/Images/Calvo.jpg';
+import Toño from '../../../Images/fototonopaginaweb.jpg';
+import Calvo from '../../../Images/Calvo.jpg';
 
 function AboutUs() {
   return (
